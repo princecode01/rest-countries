@@ -1,13 +1,265 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* :root {
+  --main-bg: white;
+  --main-bg: rgb(236, 234, 234);
+} */
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--main-color) !important;
+  opacity: 1;
+  font-weight: 500 !important;
+  /* Firefox */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: var(--main-color) !important;
+  font-weight: 500 !important;
+}
+
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: var(--main-color) !important;
+  font-weight: 500 !important;
+}
+
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.light {
+  --main-color: hsl(200, 15%, 8%);
+  --main-bg: white;
+  --sec-bg: rgb(236, 234, 234);
+}
+
+.dark {
+  --main-color: hsl(0, 0%, 100%);
+  --main-bg: hsl(209, 23%, 22%);
+  --sec-bg: hsl(207, 26%, 17%);
+}
+
+body {
+  color: var(--main-color) !important;
+  background-color: var(--sec-bg) !important;
+}
+
+a {
+  color: var(--main-color) !important;
+}
+
+.Navbar {
+  color: var(--main-color);
+  background-color: var(--main-bg) !important;
+  /* font-weight: 600; */
+  -webkit-box-shadow: 0px 1px 19px 2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 19px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 1px 19px 2px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode {
+  cursor: pointer;
+}
+
+.arrow-up {
+  position: fixed;
+  bottom: 15px;
+  right: 25px;
+  border: 3px solid var(--main-color);
+  border-radius: 50%;
+  padding: 7px 11px;
+  cursor: pointer;
+}
+
+.arrow-up i {
+  color: var(--main-color);
+  font-size: 1.25rem;
+}
+
+/* show and hide arrow up  */
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+
+.input span {
+  position: absolute;
+  top: 0;
+  left: 17px;
+  transform: translateY(50%);
+}
+
+.form-control {
+  border: none !important;
+  outline: none !important;
+  border-radius: 4px !important;
+  padding: 10px 20px 10px 40px !important;
+  color: var(--main-color) !important;
+  background-color: var(--main-bg) !important;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+
+/* dropdown css */
+.regions {
+  position: relative;
+}
+
+.toggle {
+  all: unset;
+  width: 100%;
+  position: relative;
+  background-color: var(--main-bg);
+  color: var(--main-color);
+  padding: 10px 0px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.toggle::after {
+  content: "";
+  position: absolute;
+  left: 90%;
+  width: 6px;
+  height: 6px;
+  border-width: 0 3px 3px 0;
+  border-style: solid;
+  transform: rotate(45deg);
+  transition: 0.4s;
+}
+
+.list {
+  width: 100% !important;
+  position: absolute;
+  left: 0;
+  top: 110%;
+  background-color: var(--main-bg);
+  color: var(--main-color);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  height: 0px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s ease-in;
+  /*its important for region filter specially oceania*/
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px;
+  cursor: pointer;
+}
+
+.list-item:hover {
+  background-color: var(--sec-bg);
+}
+
+.toggle:focus::after {
+  transform: rotate(225deg);
+}
+
+.toggle:focus~.list {
+  height: 230px;
+}
+
+
+/* ///// */
+
+.country-card {
+  background-color: var(--main-bg) !important;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+
+.country-info h5 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.country-info p {
+  margin-bottom: 0.5rem;
+}
+
+.country-info span {
+  font-weight: 600;
+}
+
+.info span,
+.country-borders {
+  font-weight: 600;
+}
+
+.country-borders {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.back-btn {
+  color: var(--main-color);
+  background-color: var(--main-bg);
+  position: absolute;
+  top: -30px;
+  left: 0;
+  padding: 3px 25px;
+  border: none;
+  border-radius: 3px;
+  -webkit-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.5), -2px -2px 7px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.5), -2px -2px 7px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.5), -2px -2px 7px 0px rgba(0, 0, 0, 0.5);
+}
+
+.border {
+  /* all: unset; */
+  background-color: var(--main-bg);
+  padding: 2px 20px;
+  border: none;
+  border-radius: 3px;
+  margin: 0px 1px;
+}
+
+
+@media screen and (max-width:992px) {
+
+  .g-5,
+  .gx-5 {
+    --bs-gutter-x: 0 !important;
+  }
+
+  .head-line h4{
+    font-size: 19px !important;
+  }
+  .dark-mode span {
+    font-size: 14px !important;
+  }
+}
+
+@media screen and (min-width:992px) {
+  .country-img img {
+    min-height: 190px;
+    max-height: 190px;
+  }
 }
