@@ -7,12 +7,12 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css';
 
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 
 
 function App() {
 
-  let routes = createBrowserRouter([{
+  let routes = createHashRouter([{
     path: '/', element: <MasterLayOut />, errorElement: <h2>not found</h2>, children: [
       { index: true, element: <Home />},
       { path: 'details/:name', element: <Details />},
