@@ -8,7 +8,7 @@ export default function Country(props) {
 
   return (
     <>
-      <Link to={`/details/${name}`}  className='col-lg-3 col-md-6 col-sm-8 align-self-center text-decoration-none'>
+      <Link to={`/details/${name}`}  className='col-lg-3 col-md-6 col-sm-8 text-decoration-none'>
         <div className="country-card">
           <div className="country-img">
             <img className='w-100' src={img} alt={alt} />

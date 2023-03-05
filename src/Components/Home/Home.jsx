@@ -93,7 +93,7 @@ export default function Home() {
       </div> :
 
         <div className="countries">
-          <div className="row g-5 justify-content-between">
+          <div className="row g-5 justify-content-center">
             {countries?.map((country, index) =>
               <Country
                 img={country.flags.png}
